@@ -1,0 +1,56 @@
+                                                       ___  ____  ____  ____  ____(R)
+                                                      /__    /   ____/   /   ____/   
+                                                     ___/   /   /___/   /   /___/    
+                                                       Statistics/Data analysis      
+      
+      
+        ___  ____  ____  ____  ____ ®
+       /__    /   ____/   /   ____/      17.0
+      ___/   /   /___/   /   /___/       BE—Basic Edition
+      
+       Statistics and Data Science       Copyright 1985-2021 StataCorp LLC
+                                         StataCorp
+                                         4905 Lakeway Drive
+                                         College Station, Texas 77845 USA
+                                         800-STATA-PC        https://www.stata.com
+                                         979-696-4600        stata@stata.com
+      
+      Stata license: Single-user , expiring  8 Oct 2024
+      Serial number: 301809033635
+        Licensed to: Nayeon Kim
+                     The Ohio State University
+      
+      Notes:
+            1. Unicode is supported; see help unicode_advice.
+            2. New update available; type -update all-
+      
+     1 . import excel "C:\Users\Nayeon\OneDrive\바탕 화면\monthly(post-covid).xlsx", sheet("S
+      > heet1") firstrow
+      (7 vars, 76 obs)
+      
+     2 . tsset Date
+      
+      Time variable: Date, May-22 to Mar-24, but with gaps
+              Delta: 1 day
+      
+     3 . reg Dlow Dvol Clow Cvol Emp PPI
+      
+            Source |       SS           df       MS      Number of obs   =        20
+      -------------+----------------------------------   F(5, 14)        =      1.35
+             Model |  121.748474         5  24.3496948   Prob > F        =    0.3011
+          Residual |  252.722858        14  18.0516327   R-squared       =    0.3251
+      -------------+----------------------------------   Adj R-squared   =    0.0841
+             Total |  374.471332        19  19.7090175   Root MSE        =    4.2487
+      
+      ------------------------------------------------------------------------------
+              Dlow | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+      -------------+----------------------------------------------------------------
+              Dvol |  -8.51e-07   6.73e-07    -1.27   0.226    -2.29e-06    5.92e-07
+              Clow |   .1486019   .1389855     1.07   0.303    -.1494923     .446696
+              Cvol |   -.000022   .0000476    -0.46   0.651     -.000124    .0000801
+               Emp |   .1335882   .0730788     1.83   0.089    -.0231503    .2903268
+               PPI |   .2139809   .1477189     1.45   0.169    -.1028445    .5308064
+             _cons |  -103.5077   67.29311    -1.54   0.146    -247.8371    40.82166
+      ------------------------------------------------------------------------------
+      
+     4 . translate @Results postCovid.txt

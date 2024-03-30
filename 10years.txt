@@ -1,0 +1,56 @@
+                                                       ___  ____  ____  ____  ____(R)
+                                                      /__    /   ____/   /   ____/   
+                                                     ___/   /   /___/   /   /___/    
+                                                       Statistics/Data analysis      
+      
+      
+        ___  ____  ____  ____  ____ ®
+       /__    /   ____/   /   ____/      17.0
+      ___/   /   /___/   /   /___/       BE—Basic Edition
+      
+       Statistics and Data Science       Copyright 1985-2021 StataCorp LLC
+                                         StataCorp
+                                         4905 Lakeway Drive
+                                         College Station, Texas 77845 USA
+                                         800-STATA-PC        https://www.stata.com
+                                         979-696-4600        stata@stata.com
+      
+      Stata license: Single-user , expiring  8 Oct 2024
+      Serial number: 301809033635
+        Licensed to: Nayeon Kim
+                     The Ohio State University
+      
+      Notes:
+            1. Unicode is supported; see help unicode_advice.
+            2. New update available; type -update all-
+      
+     1 . import excel "C:\Users\Nayeon\OneDrive\바탕 화면\monthly(2014-2024).xlsx", sheet("Sh
+      > eet1") firstrow
+      (7 vars, 134 obs)
+      
+     2 . tsset Date
+      
+      Time variable: Date, Dec-13 to Mar-24, but with gaps
+              Delta: 1 day
+      
+     3 . reg Dlow Dvol Clow Cvol Emp PPI
+      
+            Source |       SS           df       MS      Number of obs   =       118
+      -------------+----------------------------------   F(5, 112)       =     50.64
+             Model |  5934.29679         5  1186.85936   Prob > F        =    0.0000
+          Residual |   2625.1834       112  23.4391375   R-squared       =    0.6933
+      -------------+----------------------------------   Adj R-squared   =    0.6796
+             Total |  8559.48019       117  73.1579504   Root MSE        =    4.8414
+      
+      ------------------------------------------------------------------------------
+              Dlow | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+      -------------+----------------------------------------------------------------
+              Dvol |  -5.86e-07   5.81e-08   -10.08   0.000    -7.01e-07   -4.71e-07
+              Clow |  -.0234178   .0329995    -0.71   0.479    -.0888021    .0419665
+              Cvol |   .0000319   4.07e-06     7.84   0.000     .0000238      .00004
+               Emp |  -.0535175   .0235933    -2.27   0.025    -.1002646   -.0067704
+               PPI |   .0436901   .0316434     1.38   0.170    -.0190072    .1063874
+             _cons |   50.71957   7.113885     7.13   0.000     36.62432    64.81482
+      ------------------------------------------------------------------------------
+      
+     4 . translate @Results 10years.txt
